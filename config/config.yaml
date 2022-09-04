@@ -1,0 +1,46 @@
+scanning:
+  enabled_scanners:
+    - lambda
+    - rds
+    - elasticsearch
+    - eks
+    - load_balancers
+    - trusted_advisor
+  
+  deprecated_versions:
+    lambda_runtimes:
+      - python3.7
+      - python3.8
+      - nodejs12.x
+      - nodejs14.x
+      - java8
+    rds_engines:
+      mysql:
+        - "5.6"
+        - "5.7"
+      postgres:
+        - "10"
+        - "11"
+        - "12"
+    eks_versions:
+      - "1.21"
+      - "1.22"
+      - "1.23"
+  
+  rds_idle_days: 7
+  elb_no_targets_days: 3
+
+notifications:
+  from_email: "aws-scanner@company.com"
+  default_recipients:
+    - "cloud-ops@company.com"
+  
+  owner_tags:
+    - Owner
+    - Team
+    - Contact
+  
+  send_email_if_severity:
+    - critical
+    - high
+    - medium
